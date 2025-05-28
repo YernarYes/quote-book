@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:latest
+    container_name: postgres_container
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: cmd
+    ports:
+      - "5432:5432"
+    volumes:
+        - ".\\migrations\\1_create_table_quote.sql:/docker-entrypoint-initdb.d/1_create_table_quote.sql"
